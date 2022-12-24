@@ -16,7 +16,7 @@ function renderHtmlProducts(){
     feedHtml += `
     <div class="product" data-product="${product.id}">
         <div class="product-info">
-            <span>${product.emoji}</span>
+            <img src="./images/${product.name}.png">
             <div>
                 <h2 class="product-info-name">${product.name}</h2>
                 <p class="product-info-description">${product.ingredients}</p>
