@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <title>Restaurant Ordering App</title>
 </head>
 <body>
-    <script src="index.js"></script>
+    <main>
+        <div class="container-app">
+            <header class="header-app">
+                <h1>Jimmy’s Diner</h1>
+                <p class="description-app">The best burgers and pizzas in town.</p>
+            </header>
+            <div class="container-cart">
+                <div class="product">
+                    <div class="product-info">
+                        <span>🍕</span>
+                        <div>
+                            <h2 class="product-info-name">Pizza</h2>
+                            <p class="product-info-description">pepperoni,mushrom,mozarella</p>
+                            <p class="product-info-price">$14</p>
+                        </div>
+                    </div>
+                    <button class="product-cta">
+                        +
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="index.js" type="module"></script>
 </body>
 </html>
