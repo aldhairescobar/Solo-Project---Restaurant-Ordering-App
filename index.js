@@ -1,7 +1,5 @@
 import { menuArray } from './data.js'
 
-const productsEl = document.getElementById('products')
-
 document.addEventListener('click', function(e){
   if (e.target.id === 'product-btn'){
     console.log(e.target.dataset.ctaProduct)
@@ -10,10 +8,10 @@ document.addEventListener('click', function(e){
 
 function renderHtmlProducts(){
 
-  let feedHtml = ''
+  let productsHtml = ''
 
   menuArray.forEach(function(product){
-    feedHtml += `
+    productsHtml += `
     <div class="product" data-product="${product.id}">
         <div class="product-info">
             <img src="./images/${product.name}.png">
@@ -30,9 +28,39 @@ function renderHtmlProducts(){
     `
   })
 
-  productsEl.innerHTML = feedHtml
+  let yourOrderHtml = `
+  <div class="container-your-order hidden">
+      <h2>Your order</h2>
+      <div id="your-order-products">
+          <div class="your-order-item">
+              <div>
+                  <p class="your-order-product-name">Pizza</p>
+                  <button class="remove-btn">remove</button>
+              </div>
+              <span class="your-order-item-price">$14</span>
+          </div>
+      </div>
+      <div class="section-total-price">
+          <p>Total price:</p><span class="total-price">$26</span>
+      </div>
+      <button class="complete-order-btn">Complete order</button>
+    </div>
+  `
+
+  let feedHtml = `
+    ${productsHtml}
+    ${yourOrderHtml}
+  `
+
+  return feedHtml
 
 }
 
 
 renderHtmlProducts()
+
+function render(){
+  document.getElementById('feed').innerHTML = renderHtmlProducts() 
+}
+
+render()
