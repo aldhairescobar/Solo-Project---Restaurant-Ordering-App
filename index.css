@@ -107,7 +107,8 @@ h1 {
     cursor: pointer;
 }
 
-.complete-order-btn {
+.complete-order-btn,
+.modal-btn {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 700;
     font-size: 1rem;
@@ -118,6 +119,10 @@ h1 {
     padding: 1em 0;
     border-radius: 3px;
     cursor: pointer;
+}
+
+.modal-btn {
+    margin-top: 23px;
 }
 
 /* Layout */
@@ -192,4 +197,50 @@ h1 {
 
 .block {
     display: block;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 524px;
+    height: 470px;
+    border-radius: 4px;
+    box-shadow: 5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 1);
+    padding: 46px 24px 30px;
+}
+
+.modal-inner {
+    max-width: 475px;
+    margin: 0 auto;
+}
+
+.modal-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 46px;
+    padding-left: 84px;
+    padding-right: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.25rem;
+    border: 1.3px solid rgba(117, 117, 117, 1);
+    border-radius: 4px;
+    padding: 16px 26px;
+    margin-bottom: 23px;
 }
