@@ -1,12 +1,60 @@
 import { menuArray } from './data.js'
 
+let orderProducts = []
+let totalPrice = 0
+
 document.addEventListener('click', function(e){
   if (e.target.id === 'product-btn'){
-    console.log(e.target.dataset.ctaProduct)
+    handleProductClick(Number(e.target.dataset.ctaProduct))
+  }
+  if (e.target.dataset.remove){
+    handleRemoveClick(Number(e.target.dataset.remove))
   }
 })
 
-function renderHtmlProducts(){
+function handleProductClick(productId){
+
+  menuArray.filter(function(item){
+
+    if (item.id === productId){
+      totalPrice = totalPrice + item.price
+      const productObj = {
+        name: item.name,
+        price: item.price,
+        id: item.id
+      }
+
+      orderProducts.push(productObj)
+    }
+  })
+
+  render()
+}
+
+function handleRemoveClick(productId){
+
+  const productIndex = orderProducts.findIndex(function(product){
+    return product.id === productId
+  })
+
+
+  orderProducts.forEach(function(product, i){
+    if (productIndex === i){
+      totalPrice = totalPrice - product.price
+    }
+  })
+
+  orderProducts.splice(productIndex, 1)
+
+  /* const newObj = orderProducts.filter(function(product){
+    return product.id != productId
+  })
+
+  console.log(newObj) */
+  render()
+}
+
+function feedHtml(){
 
   let productsHtml = ''
 
@@ -28,20 +76,34 @@ function renderHtmlProducts(){
     `
   })
 
+  let orderProductsHtml = ''
+
+  orderProducts.forEach(function(product){
+    orderProductsHtml += `
+    <div class="your-order-item">
+        <div>
+            <p class="your-order-product-name">${product.name}</p>
+            <button class="remove-btn" data-remove="${product.id}">remove</button>
+        </div>
+        <span class="your-order-item-price">$${product.price}</span>
+    </div>
+    `
+  })
+
+  let yourOrderClass = ''
+
+  if(orderProducts.length > 0){
+    yourOrderClass = 'block'
+  }
+
   let yourOrderHtml = `
-  <div class="container-your-order hidden">
+  <div id="your-order-box" class="container-your-order ${yourOrderClass}">
       <h2>Your order</h2>
       <div id="your-order-products">
-          <div class="your-order-item">
-              <div>
-                  <p class="your-order-product-name">Pizza</p>
-                  <button class="remove-btn">remove</button>
-              </div>
-              <span class="your-order-item-price">$14</span>
-          </div>
+          ${orderProductsHtml}
       </div>
       <div class="section-total-price">
-          <p>Total price:</p><span class="total-price">$26</span>
+          <p>Total price:</p><span class="total-price">$${totalPrice}</span>
       </div>
       <button class="complete-order-btn">Complete order</button>
     </div>
@@ -56,11 +118,8 @@ function renderHtmlProducts(){
 
 }
 
-
-renderHtmlProducts()
-
 function render(){
-  document.getElementById('feed').innerHTML = renderHtmlProducts() 
+  document.getElementById('feed').innerHTML = feedHtml() 
 }
 
 render()

@@ -120,7 +120,6 @@ h1 {
     cursor: pointer;
 }
 
-
 /* Layout */
 
 .container-app {
@@ -159,6 +158,7 @@ h1 {
 
 .container-your-order {
     margin: 40px auto;
+    display: none;
 }
 
 #your-order-products {
@@ -182,4 +182,14 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin: 12px 0 50px;
+}
+
+/*  */
+
+/* .hidden {
+    display: none;
+} */
+
+.block {
+    display: block;
 }
