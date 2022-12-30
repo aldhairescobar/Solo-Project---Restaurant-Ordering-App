@@ -11,4 +11,5 @@ Create modal (HTML - CSS)
 Hide modal by default and open it when clicking 'Complete order' button
 
 Make modal inputs required when clicking 'Pay' button
+Save Name to use in 'Thanks' message
 After clicking Pay - Total price 0, No order products - and show 'Thanks' message

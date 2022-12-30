@@ -1,4 +1,5 @@
 import { menuArray } from './data.js'
+const cardDetailsForm = document.getElementById('form')
 
 let orderProducts = []
 let totalPrice = 0
@@ -9,6 +10,9 @@ document.addEventListener('click', function(e){
   }
   if (e.target.dataset.remove){
     handleRemoveClick(Number(e.target.dataset.remove))
+  }
+  if (e.target.id === 'complete-order-btn'){
+    handleCompleteOrderClick()
   }
 })
 
@@ -53,6 +57,21 @@ function handleRemoveClick(productId){
   console.log(newObj) */
   render()
 }
+
+function handleCompleteOrderClick(){
+  document.getElementById('modal').style.display = 'block'
+}
+
+/* handle form */
+cardDetailsForm.addEventListener('submit', function(e){
+  e.preventDefault()
+
+  const formData = new FormData(cardDetailsForm)
+  const userName = formData.get('userName')
+  console.log(userName)
+
+})
+
 
 function feedHtml(){
 
@@ -105,7 +124,7 @@ function feedHtml(){
       <div class="section-total-price">
           <p>Total price:</p><span class="total-price">$${totalPrice}</span>
       </div>
-      <button class="complete-order-btn">Complete order</button>
+      <button class="complete-order-btn" id="complete-order-btn">Complete order</button>
     </div>
   `
 
@@ -115,7 +134,6 @@ function feedHtml(){
   `
 
   return feedHtml
-
 }
 
 function render(){
