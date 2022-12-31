@@ -68,9 +68,22 @@ cardDetailsForm.addEventListener('submit', function(e){
 
   const formData = new FormData(cardDetailsForm)
   const userName = formData.get('userName')
-  console.log(userName)
-
+  handlePayClick(userName)
 })
+
+function handlePayClick(name){
+
+  orderProducts = []
+  totalPrice = 0
+  document.getElementById('modal').style.display = 'none'
+  const thanksMessage = `
+    <div class="thanks-message">
+      <p>Thanks, ${name}! Your order is on its way!</p>
+    </div>`
+
+  document.getElementById('container-app').innerHTML += thanksMessage
+  render()
+}
 
 
 function feedHtml(){

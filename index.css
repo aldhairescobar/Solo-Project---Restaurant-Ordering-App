@@ -11,7 +11,6 @@ body {
     background-color: #F5F5F5;
 } 
 
-
 /* Typography */
 
 h1, h2, p {
@@ -141,7 +140,8 @@ h1 {
 }
 
 .container-cart, 
-.container-your-order {
+.container-your-order,
+.thanks-message {
     max-width: 508px;
     margin: 0 auto;
 }
@@ -157,6 +157,18 @@ h1 {
 .product-info {
     display: flex;
     align-items: center;
+}
+
+.thanks-message {
+    background-color: rgba(236, 253, 245, 1);
+    padding: 50px 30px;
+    margin-top: 45px;
+}
+
+.thanks-message p {
+    color: rgba(6, 95, 70, 1);
+    font-size: 2rem;
+    text-align: center;
 }
 
 /*  */
@@ -190,10 +202,6 @@ h1 {
 }
 
 /*  */
-
-/* .hidden {
-    display: none;
-} */
 
 .block {
     display: block;
